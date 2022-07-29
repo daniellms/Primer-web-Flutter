@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:vertical_landing_page/blocs/page/page_bloc.dart';
+import 'package:vertical_landing_page/providers/page_provider.dart';
 import 'package:vertical_landing_page/ui/shared/custom_app_menu.dart';
 import 'package:vertical_landing_page/ui/views/about_view.dart';
 import 'package:vertical_landing_page/ui/views/contact_view.dart';
@@ -35,27 +37,22 @@ class _HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
-    return BlocBuilder<PageBloc, PageState>(
-      builder: (context, state) {
-        return PageView(
-          physics: BouncingScrollPhysics(),
-          // controller: state.scrollController,
-          scrollBehavior: ScrollConfiguration.of(context).copyWith(dragDevices: {
-            PointerDeviceKind.touch,
-            PointerDeviceKind.mouse,
-          }),
-          scrollDirection: Axis.vertical,
-          children: [
-            HomeView(),
-            AboutView(),
-            PricingView(),
-            ContactView(),
-            LocationView(),
-          ],
-        );
-      },
+    final pageProvider = Provider.of<PageProvider>(context, listen: false);
+    return PageView(
+      physics: BouncingScrollPhysics(),
+      controller: pageProvider.scrollController,
+      scrollBehavior: ScrollConfiguration.of(context).copyWith(dragDevices: {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      }),
+      scrollDirection: Axis.vertical,
+      children: [
+        HomeView(),
+        AboutView(),
+        PricingView(),
+        ContactView(),
+        LocationView(),
+      ],
     );
   }
 }

@@ -13,7 +13,7 @@ class PricingView extends StatelessWidget {
           child: Text(
               'Pricing', style: GoogleFonts.montserratAlternates( //montserratAlternates
               fontSize: 80, 
-              // color: Colors.,
+              color: Colors.white60,
               fontWeight: FontWeight.bold, 
             ),
           ),

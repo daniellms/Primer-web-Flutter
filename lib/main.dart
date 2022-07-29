@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:vertical_landing_page/blocs/page/page_bloc.dart';
+import 'package:vertical_landing_page/providers/page_provider.dart';
 import 'package:vertical_landing_page/routers/router.dart';
 import 'package:vertical_landing_page/ui/pages/home_page.dart';
 
@@ -21,9 +23,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiProvider(
       providers: [
-        BlocProvider(create: (_) => PageBloc())
+        ChangeNotifierProvider(create: (_) => PageProvider()) 
       ],
       child: MaterialApp(
         title: 'Landing Page',
@@ -34,3 +36,9 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+    
+//Bloc
+//    //  MultiBlocProvider(
+    //   providers: [
+    //     BlocProvider(create: (_) => PageBloc())
+    //   ],    

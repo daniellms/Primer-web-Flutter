@@ -7,6 +7,9 @@ class FluroPrincipalRouter {
   static void configureRoutes() {
     // Rutas
     router.define('/:page', handler: homeHandler);
-    router.notFoundHandler = homeHandler;     //404
+
+    
+    //404
+    router.notFoundHandler = homeHandler;     
   }
 }

@@ -13,7 +13,7 @@ class ContactView extends StatelessWidget {
           child: Text(
               'Contact', style: GoogleFonts.montserratAlternates( //montserratAlternates
               fontSize: 80, 
-              // color: Colors.,
+              color: Colors.white70,
               fontWeight: FontWeight.bold, 
             ),
           ),

@@ -13,7 +13,7 @@ class HomeView extends StatelessWidget {
           child: Text(
               'Home', style: GoogleFonts.montserratAlternates( //montserratAlternates
               fontSize: 80, 
-              // color: Colors.,
+              // color: Colors.white70,
               fontWeight: FontWeight.bold, 
             ),
           ),
